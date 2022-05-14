@@ -12,14 +12,14 @@ import com.aprendizadospring.repositories.EnderecoRepository;
 
 @Service
 public class EnderecoService {
-	
+
 	@Autowired
 	private EnderecoRepository repo;
 
 	public Endereco find(Integer id) {
 		Optional<Endereco> opt = repo.findById(id);
 		return opt.orElseThrow(() -> new ObjectNotFoundException("Endereco não encontrado!", null));
-		
+
 	}
 
 	public List<Endereco> findAll() {
@@ -31,4 +31,16 @@ public class EnderecoService {
 		return repo.save(obj);
 	}
 
+	public Endereco update(Endereco obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
+
+	public void delete(Integer id) {
+		find(id);
+		repo.deleteById(id);
+
+	
+
+	}
 }
