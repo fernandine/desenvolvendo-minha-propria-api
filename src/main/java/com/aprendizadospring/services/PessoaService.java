@@ -1,5 +1,6 @@
 package com.aprendizadospring.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -19,6 +20,10 @@ public class PessoaService {
 		Optional<Pessoa> opt = repo.findById(id);
 		return opt.orElseThrow(() -> new ObjectNotFoundException (
 				"Objeto não encontrado! Id: " + id + "tipo: " + Pessoa.class.getName(), null)); 
+	}
+
+	public List<Pessoa> findAll() {
+		return repo.findAll();
 	}
 
 }

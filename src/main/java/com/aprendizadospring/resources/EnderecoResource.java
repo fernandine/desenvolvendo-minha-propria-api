@@ -1,5 +1,7 @@
 package com.aprendizadospring.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,12 @@ public class EnderecoResource {
 	public ResponseEntity<Endereco> buscar(@PathVariable Integer id) {
 		Endereco obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Endereco>> findAll() {
+		List<Endereco> listEndereco = service.findAll();
+		return ResponseEntity.ok().body(listEndereco);
 	}
 
 }

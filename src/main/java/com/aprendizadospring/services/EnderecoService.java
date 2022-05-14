@@ -1,5 +1,6 @@
 package com.aprendizadospring.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -19,6 +20,10 @@ public class EnderecoService {
 		Optional<Endereco> opt = repo.findById(id);
 		return opt.orElseThrow(() -> new ObjectNotFoundException("Endereco não encontrado!", null));
 		
+	}
+
+	public List<Endereco> findAll() {
+		return repo.findAll();
 	}
 
 }

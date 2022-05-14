@@ -1,5 +1,7 @@
 package com.aprendizadospring.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,13 @@ public class PessoaResource {
 	public ResponseEntity<Pessoa> buscar(@PathVariable Integer id){
 		Pessoa obj = service.find(id);
 				return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Pessoa>> findAll(){
+		List<Pessoa> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+		
 	}
 
 
