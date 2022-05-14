@@ -26,4 +26,9 @@ public class EnderecoService {
 		return repo.findAll();
 	}
 
+	public Endereco insert(Endereco obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
+
 }
